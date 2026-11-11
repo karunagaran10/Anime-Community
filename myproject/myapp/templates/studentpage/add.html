@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if is_edit %}Edit student{% else %}Add student{% endif %}{% endblock %}
+
+{% block content %}
+<section class="student-editor content-width">
+    <aside class="student-editor__aside">
+        <p class="eyebrow">COMMUNITY PROFILE</p>
+        <h1>{% if is_edit %}Make it<br><em>your own.</em>{% else %}Every fan has<br><em>a story.</em>{% endif %}</h1>
+        <p>{% if is_edit %}Update your profile details below. Leave the password blank to keep it unchanged.{% else %}Add your details and take your place in the Anime Atlas community.{% endif %}</p>
+        <div class="editor-stamp"><i class="bi bi-stars"></i><span>ANIME<br>ATLAS</span></div>
+    </aside>
+    <div class="form-box student-editor__form">
+        <p class="eyebrow eyebrow--dark">{% if is_edit %}PROFILE SETTINGS{% else %}WELCOME ABOARD{% endif %}</p>
+        <h2>{% if is_edit %}Edit profile{% else %}Create your profile{% endif %}</h2>
+        <form method="post">
+                {% csrf_token %}
+                {% include "studentpage/_form_fields.html" %}
+                <button type="submit" class="btn btn-primary w-100">{% if is_edit %}Save changes{% else %}Add student{% endif %}</button>
+                <a class="btn btn-outline-secondary w-100 mt-2" href="{% url 'students' %}">Cancel</a>
+        </form>
+    </div>
+</section>
+{% endblock %}

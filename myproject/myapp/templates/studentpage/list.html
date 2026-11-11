@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Students{% endblock %}
+
+{% block content %}
+<section class="community-page content-width">
+    <div class="community-heading">
+        <div>
+            <p class="eyebrow eyebrow--dark">THE ANIME ATLAS COMMUNITY</p>
+            <h1>Good company.<br><em>Great stories.</em></h1>
+        </div>
+        <a class="button button--dark" href="{% url 'student' %}"><i class="bi bi-plus-lg"></i> Add a member</a>
+    </div>
+    <div class="community-summary">
+        <span class="summary-icon"><i class="bi bi-people"></i></span>
+        <span><strong>{{ students|length }}</strong><small>{% if students|length == 1 %}community member{% else %}community members{% endif %}</small></span>
+        <span class="summary-note">Every great fandom starts with a hello.</span>
+    </div>
+    {% if students %}
+        <div class="member-grid">
+            {% for student in students %}
+                <article class="member-card">
+                    <div class="member-card__avatar">{{ student.name|first|upper }}</div>
+                    <div class="member-card__info">
+                        <span class="member-label">ATLAS MEMBER {{ forloop.counter|stringformat:"02d" }}</span>
+                        <h2>{{ student.name }}</h2>
+                        <p>{{ student.email }}</p>
+                        <time class="member-joined" datetime="{{ student.joined_at|date:'c' }}">Joined {{ student.joined_at|date:"M j, Y" }}</time>
+                    </div>
+                    <div class="member-card__actions">
+                        <a href="{% url 'student_edit' student.pk %}" aria-label="Edit {{ student.name }}"><i class="bi bi-pencil"></i></a>
+                        <form method="post" action="{% url 'student_delete' student.pk %}" onsubmit="return confirm('Remove this member from the community?');">
+                            {% csrf_token %}
+                            <button type="submit" aria-label="Delete {{ student.name }}"><i class="bi bi-trash3"></i></button>
+                        </form>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="community-empty">
+            <i class="bi bi-stars"></i>
+            <h2>The first page is yours to write.</h2>
+            <p>No members yet. Add your profile and start the community.</p>
+            <a class="button button--bright" href="{% url 'student' %}">Be the first <i class="bi bi-arrow-right"></i></a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

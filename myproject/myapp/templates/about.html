@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Story | Anime Atlas{% endblock %}
+
+{% block content %}
+<section class="about-masthead">
+    <div class="about-masthead__copy">
+        <p class="eyebrow"><span></span> A LITTLE ABOUT US</p>
+        <h1>Built by fans.<br><em>Open to everyone.</em></h1>
+        <p>Anime Atlas is a gathering place for people who find a piece of themselves in the stories they watch.</p>
+        <a class="button button--bright" href="{% url 'students' %}">Meet the community <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="about-masthead__image">
+        <img src="{% static 'assets/anime.jpg' %}" alt="Colorful Anime Atlas artwork">
+        <span class="image-note">Stories connect us.</span>
+    </div>
+</section>
+
+<section class="about-story content-width">
+    <div class="story-marker"><span>OUR<br>WHY</span><i class="bi bi-arrow-down-right"></i></div>
+    <div class="story-copy">
+        <p class="eyebrow eyebrow--dark">THE IDEA</p>
+        <h2>Every great story<br>starts with a feeling.</h2>
+        <p>That feeling after a breathtaking finale. The excitement of finding a series you can’t stop talking about. The joy of meeting someone who loves the same characters you do.</p>
+        <p>We made Anime Atlas to make those moments easier to share—with a friendly community, fresh discoveries, and room for every fan’s point of view.</p>
+    </div>
+</section>
+
+<section class="values-section">
+    <div class="content-width">
+        <p class="eyebrow">WHAT GUIDES US</p>
+        <h2>Good stories. <em>Good company.</em></h2>
+        <div class="values-grid">
+            <article><span>01</span><h3>Curiosity</h3><p>There’s always another world to explore and another perspective to hear.</p></article>
+            <article><span>02</span><h3>Kindness</h3><p>Fans can disagree, discover, and share without losing respect for one another.</p></article>
+            <article><span>03</span><h3>Creativity</h3><p>We celebrate the imagination behind the stories—and the fans inspired by them.</p></article>
+        </div>
+    </div>
+</section>
+{% endblock %}

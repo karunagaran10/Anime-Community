@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Explore | Anime Atlas{% endblock %}
+
+{% block content %}
+<section class="explore-heading content-width">
+    <div>
+        <p class="eyebrow eyebrow--dark">YOUR ADVENTURE, YOUR PACE</p>
+        <h1>Explore the <em>Atlas.</em></h1>
+    </div>
+    <p>Whether you’re just getting started or have a thousand episodes behind you, there’s a corner of the Atlas for you.</p>
+</section>
+
+<section class="explore-grid content-width">
+    <article class="explore-card explore-card--discover">
+        <div class="explore-card__top"><span>01 / DISCOVER</span><i class="bi bi-compass"></i></div>
+        <div><h2>Find a new<br>favorite.</h2><p>Follow your curiosity into new genres, moods, and story worlds.</p></div>
+        <a href="{% url 'home' %}#join" aria-label="Join to discover"><i class="bi bi-arrow-up-right"></i></a>
+    </article>
+    <article class="explore-card explore-card--connect">
+        <div class="explore-card__top"><span>02 / CONNECT</span><i class="bi bi-people"></i></div>
+        <div><h2>Find your<br>fandom.</h2><p>Meet fans, share recommendations, and make the conversation yours.</p></div>
+        <a href="{% url 'students' %}" aria-label="Visit the community"><i class="bi bi-arrow-up-right"></i></a>
+    </article>
+    <article class="explore-card explore-card--celebrate">
+        <div class="explore-card__top"><span>03 / CELEBRATE</span><i class="bi bi-stars"></i></div>
+        <div><h2>Keep the<br>magic close.</h2><p>Make space for the characters, scenes, and soundtracks you’ll never forget.</p></div>
+        <a href="{% url 'about' %}" aria-label="Read our story"><i class="bi bi-arrow-up-right"></i></a>
+    </article>
+</section>
+
+<section class="explore-note content-width">
+    <i class="bi bi-lightbulb"></i>
+    <p><strong>Not sure where to begin?</strong> Join the community and tell us what kind of stories you love.</p>
+    <a class="text-link" href="{% url 'home' %}#join">Start here <i class="bi bi-arrow-right"></i></a>
+</section>
+{% endblock %}

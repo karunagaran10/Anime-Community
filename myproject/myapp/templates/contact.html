@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact | Anime Atlas{% endblock %}
+
+{% block content %}
+<section class="contact-layout content-width">
+    <div class="contact-intro">
+        <p class="eyebrow eyebrow--dark">WE’RE LISTENING</p>
+        <h1>Say <em>hello.</em></h1>
+        <p>Have an idea, a question, or a recommendation we should hear about? We’d love to hear from you.</p>
+        <div class="contact-orbit"><i class="bi bi-send"></i><span>Every good connection starts somewhere.</span></div>
+    </div>
+    <div class="contact-options">
+        <a class="contact-card" href="mailto:hello@animeatlas.example">
+            <span class="contact-card__icon"><i class="bi bi-envelope"></i></span>
+            <span><small>WRITE TO US</small><strong>hello@animeatlas.example</strong><em>For questions, ideas, and kind notes</em></span>
+            <i class="bi bi-arrow-up-right contact-arrow"></i>
+        </a>
+        <a class="contact-card" href="{% url 'students' %}">
+            <span class="contact-card__icon contact-card__icon--pink"><i class="bi bi-people"></i></span>
+            <span><small>JOIN THE CONVERSATION</small><strong>Visit the community</strong><em>Meet the people behind the fandom</em></span>
+            <i class="bi bi-arrow-up-right contact-arrow"></i>
+        </a>
+        <div class="contact-hours">
+            <i class="bi bi-clock-history"></i>
+            <div><strong>Thoughtful replies take a little time.</strong><p>We’re a small team of fans. We’ll get back to you as soon as we can.</p></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
